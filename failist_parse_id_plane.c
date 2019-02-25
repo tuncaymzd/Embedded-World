@@ -1,14 +1,14 @@
-int failist_parse_id_plane(struct failist_data_header*, char **failist_ptr) {
+#include "failist_parse_id_plane.h"
+
+int failist_parse_id_plane(unsigned char elem[12], char failist_ptr[]) {
     int i = 0;
-    
-    while (**failist_ptr != '\0') {
+
+    while (failist_ptr[i] != '\0') {
         if (i == 11) {
             return 0;
         }
-        failist_data_header.id_plane[i] = **failist_ptr;
-        (*failist_ptr)++;
+        elem[i] = failist_ptr[i];
         i++;
     }
-    (*failist_ptr)++;
     return 1;
 }
