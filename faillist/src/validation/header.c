@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include "header.h"
 
-#include "id_plane.h"
-#include "type_plane.h"
+#include "validation/header/id_plane.h"
+#include "validation/header/type_plane.h"
 
 int faillist_valid_header(faillist_validated_data_header_t *validated_header,
                           faillist_parsed_data_header_t *parsed_header) {
