@@ -33,7 +33,7 @@ int faillist_valid_header_type_plane(faillist_validated_data_header_t *header, u
         return EXIT_FAILURE;
     }
 
-    for (unsigned int i = 0; i < 11; i++) {
+    for (unsigned int i = 0; i < 11; i++) { // loop over all type_planes element
 
         if (type_planes[i].id == type_plane) {
 
@@ -41,6 +41,7 @@ int faillist_valid_header_type_plane(faillist_validated_data_header_t *header, u
             DBG("%s", " match with ");
             DBG("%s\n", type_planes[i].name);
 
+            // the type_plane is valid and the matching type plane name will be copied to the header structure
             strcpy(header->type_plane, type_planes[i].name);
 
             return EXIT_SUCCESS;

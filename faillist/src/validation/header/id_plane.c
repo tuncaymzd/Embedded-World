@@ -132,14 +132,17 @@ int faillist_valid_header_id_plane(faillist_validated_data_header_t *header, uns
         return EXIT_FAILURE;
     }
 
-    size_t l = strlen((const char *) id_plane);
+    size_t l = strlen((const char *) id_plane); // get the length of id_plane parameter for slre_match (used as cache)
 
-    for (unsigned int i = 0; i < 106; i++) {
+    for (unsigned int i = 0; i < 106; i++) { // loop over every id_planes element
         char buf[10];
 
         buf[0] = '^';
         buf[1] = '\0';
         strcat(buf, id_planes[i].registration_prefix);
+        // create a regex containing the starting character ^ appended by the registration_prefix to check if the regex
+        // could be valid
+        // TODO: is it faster than testing the whole regex ???? should be modified
 
         DBG("%s:\n", id_planes[i].country);
 
@@ -148,6 +151,7 @@ int faillist_valid_header_id_plane(faillist_validated_data_header_t *header, uns
             if (slre_match(id_planes[i].regex, (const char *) id_plane, (int) l, NULL, 0, 0) > 0) {
                 DBG("\tPlane ID : OK\n", NULL);
 
+                // the id_plane is valid and matched copy the id_plane and matching nationality to the header structure
                 strcpy(header->id_plane, (const char *) id_plane);
                 strcpy(header->nationality, id_planes[i].country);
 
