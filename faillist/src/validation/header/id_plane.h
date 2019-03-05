@@ -3,6 +3,6 @@
 
 #include "data/validated_data_header.h"
 
-int faillist_valid_id_plane(faillist_validated_data_header_t *, unsigned char []);
+int faillist_valid_header_id_plane(faillist_validated_data_header_t *header, unsigned char id_plane[]);
 
 #endif //FAILLIST_VALIDATION_HEADER_ID_PLANE_H

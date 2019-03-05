@@ -21,7 +21,7 @@ static struct type_plane type_planes[] = {
         {0x0313, "Boeing 787"}
 };
 
-int faillist_valid_type_plane(faillist_validated_data_header_t *header, unsigned int type_plane) {
+int faillist_valid_header_type_plane(faillist_validated_data_header_t *header, unsigned int type_plane) {
     for (unsigned int i = 0; i < 11; i++) {
         if (type_planes[i].id == type_plane) {
 
