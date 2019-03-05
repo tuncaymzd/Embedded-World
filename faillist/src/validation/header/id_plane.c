@@ -12,9 +12,9 @@
 #endif
 
 struct id_plane {
-    const char country[50];
-    const char registration_prefix[10];
-    const char regex[150];
+    char country[50];
+    char registration_prefix[10];
+    char regex[150];
 };
 
 static const struct id_plane id_planes[] = {
@@ -124,7 +124,7 @@ static const struct id_plane id_planes[] = {
         {"Georgia",                       "4L",   "^4L-[0-9]{5}$"},
         {"Germany",                       "D",    "^D-A[U-Z][A-Z]{2}$"},
         {"Germany",                       "D",    "^D-[BCEFGIHKLMNO][A-Z]{3}$"},
-        {"Germany",                       "D",    "^D-[0-9]{4}$"},
+        {"Germany",                       "D",    "^D-[0-9][0-9][0-9][0-9]$"},
 };
 
 int faillist_valid_header_id_plane(faillist_validated_data_header_t *header, unsigned char id_plane[]) {

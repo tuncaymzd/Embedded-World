@@ -10,11 +10,11 @@
 #endif
 
 struct type_plane {
-    const unsigned int id;
-    const char name[50];
+    unsigned int id;
+    char name[FAILLIST_VALIDATED_HEADER_TYPE_PLANE_MAX_SIZE];
 };
 
-static struct type_plane type_planes[] = {
+static const struct type_plane type_planes[] = {
         {0x0140, "Airbus A320"},
         {0x014A, "Airbus A330"},
         {0x015E, "Airbus A350"},
