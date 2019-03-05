@@ -1,14 +1,14 @@
 #include <stddef.h>
-#include <printf.h>
 #include <memory.h>
 #include <stdlib.h>
 #include "external/slre.h"
 #include "id_plane.h"
 
 #ifdef VALID_ID_PLANE_DEBUG
-#define DBG(x) printf x
+#include <printf.h>
+#define DBG(a, b) printf(a, b)
 #else
-#define DBG(x)
+#define DBG(a, b)
 #endif
 
 struct id_plane {
@@ -141,25 +141,24 @@ int faillist_valid_header_id_plane(faillist_validated_data_header_t *header, uns
         buf[1] = '\0';
         strcat(buf, id_planes[i].registration_prefix);
 
-        DBG(id_planes[i].country);
-        DBG(":\n");
+        DBG("%s:\n", id_planes[i].country);
 
         if (slre_match(buf, (const char *) id_plane, (int) l, NULL, 0, 0) > 0) {
-            DBG("\tCountry code : OK\n");
+            DBG("\tCountry code : OK\n", NULL);
             if (slre_match(id_planes[i].regex, (const char *) id_plane, (int) l, NULL, 0, 0) > 0) {
-                DBG("\tPlane ID : OK");
+                DBG("\tPlane ID : OK\n", NULL);
 
                 strcpy(header->id_plane, (const char *) id_plane);
                 strcpy(header->nationality, id_planes[i].country);
 
                 return EXIT_SUCCESS;
             } else {
-                DBG("\tPlane ID : KO");
+                DBG("\tPlane ID : KO\n", NULL);
             }
         } else {
-            DBG("\tCountry code : KO\n");
+            DBG("\tCountry code : KO\n", NULL);
         }
-        DBG("\n");
+        DBG("\n", NULL);
     }
     return EXIT_FAILURE;
 }
