@@ -1,3 +1,6 @@
+#ifndef FAILIST_DATA_FAILURE
+#define FAILIST_DATA_FAILURE
+
 #include "max_comment_size.h"
 
 typedef struct
@@ -10,3 +13,5 @@ typedef struct
     unsigned char comment_failure[MAX_COMMENT_SIZE];
 
 } failist_data_failure;
+
+#endif
