@@ -1,1 +1,0 @@
-#define MAX_COMMENT_SIZE 1000
