@@ -7,6 +7,10 @@
 
 int faillist_valid_header(faillist_validated_data_header_t *validated_header,
                           faillist_parsed_data_header_t *parsed_header) {
+    if (validated_header == NULL || parsed_header == NULL) {
+        return EXIT_FAILURE;
+    }
+
     /// ID PLANE
 
 #ifdef VALID_ID_PLANE_DEBUG

@@ -3,10 +3,9 @@
 #include "type_plane.h"
 
 unsigned int faillist_parse_type_plane(char hex[]) {
-    long long decimal, place;
+    unsigned int decimal;
     int i = 0, val, len;
     decimal = 0;
-    place = 1;
 
     len = strlen(hex);
     len--;

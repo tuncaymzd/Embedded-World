@@ -298,7 +298,7 @@ static const struct id_plane id_planes[] = {
 };
 
 int faillist_valid_header_id_plane(faillist_validated_data_header_t *header, unsigned char id_plane[]) {
-    if (header == NULL) {
+    if (header == NULL || id_plane == NULL) {
         return EXIT_FAILURE;
     }
 

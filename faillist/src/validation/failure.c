@@ -9,6 +9,9 @@
 
 int faillist_valid_failure(faillist_validated_data_failure_t *validated_failure,
                            faillist_parsed_data_failure_t *parsed_failure) {
+    if (validated_failure == NULL || parsed_failure == NULL) {
+        return EXIT_FAILURE;
+    }
 
     /// ID FAILURE
 

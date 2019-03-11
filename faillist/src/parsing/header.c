@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include "parsing/header/nb_failures.h"
 #include "parsing/header/type_plane.h"
 #include "parsing/header/id_plane.h"
