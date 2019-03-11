@@ -14,6 +14,6 @@
  * This function initilialise the structure faillist_data_header.
  *
  */
-faillist_parsed_data_header_t faillist_parse_header(char **faillist_ptr, int i);
+faillist_parsed_data_header_t faillist_parse_header(char **faillist_ptr);
 
 #endif //FAILLIST_PARSING_HEADER_H_
