@@ -29,7 +29,7 @@ void error_report(char **error) {
     for (unsigned int i = 0; i < hp.nb_failures; i++) {
         faillist_parsed_data_failure_t fp;
         faillist_validated_data_failure_t fv;
-        fp = faillist_parse_failure(error);
+        fp = faillist_parse_failure(error, i);
         if (faillist_valid_failure(&fv, &fp) == EXIT_FAILURE) {
             return;
         }

@@ -15,6 +15,6 @@
  * This function initilialise the structure faillist_data_failure.
  *
  */
-faillist_parsed_data_failure_t faillist_parse_failure(char **faillist_ptr);
+faillist_parsed_data_failure_t faillist_parse_failure(char **faillist_ptr, int i);
 
 #endif //FAILLIST_PARSING_FAILURE_H_

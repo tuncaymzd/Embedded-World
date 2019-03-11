@@ -5,7 +5,7 @@
 int faillist_valid_failure_comment(faillist_validated_data_failure_t *failure,
                                    unsigned int length,
                                    unsigned char comment[]) {
-    if (failure == NULL) {
+    if (failure == NULL || comment == NULL) {
         return EXIT_FAILURE;
     }
 
@@ -14,6 +14,7 @@ int faillist_valid_failure_comment(faillist_validated_data_failure_t *failure,
     }
 
     strncpy(failure->comment_failure, (const char *) comment, length);
+    failure->comment_failure[length] = '\0';
 
     return EXIT_SUCCESS;
 }
