@@ -5,8 +5,7 @@ set(CMAKE_C_STANDARD 11)
 
 include_directories(src)
 
-add_executable(faillist
-        src/main.c
+add_library(faillist
         src/error_report.c
         src/external/slre.c
         src/validation/header.c
