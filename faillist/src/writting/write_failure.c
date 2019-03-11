@@ -4,7 +4,10 @@
 #include <string.h>
 #include "../data/validated_data_failure.h"
 
-int write_failure(struct faillist_validated_data_failure* data, int fd) {
+int write_failure(int fd, struct faillist_validated_data_failure* data) {
+    if (faillist_validated_data_header == NULL) {
+      return EXIT_FAILURE;
+    }
     int fw;
     fw = write(fd, "---------\n", 10);
     if (!fw) {
@@ -28,9 +31,7 @@ int write_failure(struct faillist_validated_data_failure* data, int fd) {
       perror("Can't write here");
       return EXIT_FAILURE;
     } 
-    char buffer2[20];
-    snprintf(buffer2 , 10, "%d", data->id_failure);
-    fw = write(fd, buffer2, strlen(buffer2));
+    fw = write(fd, data->id_failure, strlen(data->id_failure));
     if (!fw) {
       perror("Can't write here");
       return EXIT_FAILURE;

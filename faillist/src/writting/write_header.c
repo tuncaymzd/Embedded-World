@@ -4,7 +4,10 @@
 #include "../data/validated_data_header.h"
 #include <string.h>
 
-int write_header(struct faillist_validated_data_header* data, int fd) {
+int write_header(int fd, struct faillist_validated_data_header* data) {
+  if (faillist_validated_data_header == NULL) {
+    return EXIT_FAILURE;
+  }
   int fw;
   fw = write(fd, "FAILURE REPORT \n", 16);
   if (!fw) {
