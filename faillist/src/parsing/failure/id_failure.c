@@ -1,15 +1,19 @@
 #include <string.h>
+#include <stdlib.h>
+#include <tgmath.h>
 #include "id_failure.h"
 
-unsigned int faillist_parse_id_failure(char hex[]) {
-    long long decimal, place;
+int faillist_parse_id_failure(unsigned int res, char hex[]) {
+    long long decimal;
     int i = 0, val, len;
     decimal = 0;
-    place = 1;
 
     len = strlen(hex);
     len--;
 
+    if (hex == NULL) {
+        return EXIT_FAILURE;
+    }
     for(i=0; hex[i]!='\0'; i++)
     {
 
@@ -29,5 +33,6 @@ unsigned int faillist_parse_id_failure(char hex[]) {
         decimal += val * pow(16, len);
         len--;
     }
-    return decimal;
+    res = decimal;
+    return EXIT_SUCCESS;
 }

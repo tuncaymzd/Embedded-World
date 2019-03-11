@@ -12,6 +12,6 @@
  * This function is used by faillist_parse_failure. He take id_failure and initilialise the structure faillist_data_failure.
  *
  */
-unsigned int faillist_parse_id_failure(char faillist_ptr[]);
+int faillist_parse_id_failure(unsigned int res, char hex[]);
 
 #endif //FAILLIST_PARSING_FAILURE_ID_FAILURE_H_

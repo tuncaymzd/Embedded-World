@@ -3,15 +3,17 @@
 #include <math.h>
 #include "comment_failure_size.h"
 
-unsigned int faillist_parse_comment_failure_size(char hex[]) {
-    long long decimal, place;
+int faillist_parse_comment_failure_size(unsigned int res, char hex[]) {
+    unsigned int decimal;
     int i = 0, val, len;
     decimal = 0;
-    place = 1;
 
     len = strlen(hex);
     len--;
 
+    if (hex == NULL) {
+        return EXIT_FAILURE;
+    }
     for(i=0; hex[i]!='\0'; i++)
     {
 
@@ -31,5 +33,6 @@ unsigned int faillist_parse_comment_failure_size(char hex[]) {
         decimal += val * pow(16, len);
         len--;
     }
-    return decimal;
+    res = decimal;
+    return EXIT_SUCCESS;
 }

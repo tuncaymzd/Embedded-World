@@ -12,6 +12,6 @@
  * This function is used by faillist_parse_failure. He take comment_failure_size and initilialise the structure faillist_data_failure.
  *
  */
-unsigned int faillist_parse_comment_failure_size(char faillist_ptr[]);
+int faillist_parse_comment_failure_size(unsigned int res, char hex[]);
 
 #endif //FAILLIST_PARSING_FAILURE_COMMENT_FAILURE_SIZE_H_

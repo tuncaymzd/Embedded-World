@@ -12,6 +12,6 @@
  * This function is used by faillist_parse_header. He take type_plane and initilialise the structure faillist_data_header.
  *
  */
-unsigned int faillist_parse_nb_failures(char hex[]);
+int faillist_parse_nb_failures(unsigned int res, char hex[]);
 
 #endif //FAILLIST_PARSING_HEADER_NB_FAILURES_H_

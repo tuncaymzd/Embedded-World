@@ -3,15 +3,17 @@
 #include <string.h>
 #include "level_criticity.h"
 
-unsigned int faillist_parse_level_criticity(char hex[]) {
-    long long decimal, place;
+int faillist_parse_level_criticity(unsigned int res, char hex[]) {
+    long long decimal;
     int i = 0, val, len;
     decimal = 0;
-    place = 1;
 
     len = strlen(hex);
     len--;
 
+    if (hex == NULL) {
+        return EXIT_FAILURE;
+    }
     for(i=0; hex[i]!='\0'; i++)
     {
 
@@ -31,5 +33,6 @@ unsigned int faillist_parse_level_criticity(char hex[]) {
         decimal += val * pow(16, len);
         len--;
     }
-    return decimal;
+    res = decimal;
+    return EXIT_SUCCESS;
 }

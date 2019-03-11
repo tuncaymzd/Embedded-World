@@ -1,8 +1,9 @@
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
 #include "type_plane.h"
 
-unsigned int faillist_parse_type_plane(char hex[]) {
+int faillist_parse_type_plane(unsigned int res, char hex[]) {
     unsigned int decimal;
     int i = 0, val, len;
     decimal = 0;
@@ -10,6 +11,9 @@ unsigned int faillist_parse_type_plane(char hex[]) {
     len = strlen(hex);
     len--;
 
+    if (hex == NULL) {
+        return EXIT_FAILURE;
+    }
     for(i=0; hex[i]!='\0'; i++)
     {
 
@@ -29,5 +33,6 @@ unsigned int faillist_parse_type_plane(char hex[]) {
         decimal += val * pow(16, len);
         len--;
     }
-    return decimal;
+    res = decimal;
+    return EXIT_SUCCESS;
 }

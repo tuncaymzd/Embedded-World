@@ -1,12 +1,16 @@
 #include <string.h>
+#include <stdlib.h>
+#include <tgmath.h>
 #include "id_component.h"
 
-unsigned int faillist_parse_id_component(char hex[]) {
-    long long decimal, place;
+int faillist_parse_id_component(unsigned int res, char hex[]) {
+    long long decimal;
     int i = 0, val, len;
     decimal = 0;
-    place = 1;
 
+    if (hex == NULL) {
+        return EXIT_FAILURE;
+    }
     len = strlen(hex);
     len--;
 
@@ -29,5 +33,6 @@ unsigned int faillist_parse_id_component(char hex[]) {
         decimal += val * pow(16, len);
         len--;
     }
-    return decimal;
+    res = decimal;
+    return EXIT_SUCCESS;
 }

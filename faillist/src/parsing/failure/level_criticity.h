@@ -12,6 +12,6 @@
  * This function is used by faillist_parse_failure. He take level criticity and initilialise the structure faillist_data_failure.
  *
  */
-unsigned int faillist_parse_level_criticity(char faillist_ptr[]);
+int faillist_parse_level_criticity(unsigned int res, char hex[]);
 
 #endif //FAILLIST_PARSING_FAILURE_LEVEL_CRITICITY_H_
