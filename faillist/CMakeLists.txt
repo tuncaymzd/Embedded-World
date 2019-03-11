@@ -7,6 +7,7 @@ include_directories(src)
 
 add_executable(faillist
         src/main.c
+        src/error_report.c
         src/external/slre.c
         src/validation/header.c
         src/validation/header/id_plane.c
