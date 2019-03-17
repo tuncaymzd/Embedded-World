@@ -52,7 +52,7 @@ void tearDown(void)
  *    TESTS
  ******************************************************************************/
 
-void test_faillist_valid_header_id_plane_is_valid(void)
+void test_faillist_valid_header_type_plane_is_valid(void)
 {
     faillist_validated_data_header_t hp;
     TEST_ASSERT_EQUAL_INT(type_plane, 0x0140);
@@ -61,7 +61,7 @@ void test_faillist_valid_header_id_plane_is_valid(void)
     TEST_ASSERT_EQUAL_STRING(hp.type_plane, "Airbus A320");
 }
 
-void test_faillist_valid_header_id_plane_is_not_valid(void)
+void test_faillist_valid_header_type_plane_is_not_valid(void)
 {
     faillist_validated_data_header_t hps;
     TEST_ASSERT_EQUAL_INT(type_plane_not_good, 0x444);
@@ -79,7 +79,7 @@ void test_faillist_valid_header_id_plane_is_not_valid(void)
     TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus 787");
 }
 
-void test_faillist_valid_header_id_plane_null(void) {
+void test_faillist_valid_header_type_plane_null(void) {
     faillist_validated_data_header_t hps;
     TEST_ASSERT_EQUAL(faillist_valid_header_type_plane(&hps, NULL), 1);
 }
