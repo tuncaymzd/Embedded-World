@@ -10,7 +10,8 @@
 #include "unity.h"
 
 //-- module being tested : id_plane
-#include "id_plane.h"
+#include <string.h>
+#include "type_plane.h"
 
 
 /*******************************************************************************
@@ -24,9 +25,9 @@
 /*******************************************************************************
  *    PRIVATE DATA
  ******************************************************************************/
-unsigned char id_plane[12];
-unsigned char id_plane2[12];
-unsigned char id_plane_null[12];
+unsigned int type_plane;
+unsigned int type_plane_not_good;
+unsigned int type_plane_null;
 
 /*******************************************************************************
  *    PRIVATE FUNCTIONS
@@ -39,9 +40,8 @@ unsigned char id_plane_null[12];
 
 void setUp(void)
 {
-    strcpy(id_plane,"SU-ABB");
-    strcpy(id_plane2, "SU-ABB-ABCDEFGH");
-    strcpy(id_plane_null, NULL);
+    type_plane = 0x0140;
+    type_plane_not_good = 0x444;
 }
 
 void tearDown(void)
@@ -55,10 +55,31 @@ void tearDown(void)
 void test_faillist_valid_header_id_plane_is_valid(void)
 {
     faillist_validated_data_header_t hp;
-    TEST_ASSERT_EQUAL_STRING(id_plane, "SU-ABB");
-    TEST_ASSERT_EQUAL_STRING(id_plane2, "SU-ABB-ABCDEFGH");
-    TEST_ASSERT_EQUAL_INT(faillist_valid_header_id_plane(&hp, id_plane), 1);
-    TEST_ASSERT_EQUAL_INT(faillist_valid_header_id_plane(&hp, id_plane_null), 0);
-    TEST_ASSERT_EQUAL_INT(faillist_valid_header_id_plane(&hp, id_plane_2), 0);
+    TEST_ASSERT_EQUAL_INT(type_plane, 0x0140);
+    TEST_ASSERT_EQUAL_INT(faillist_valid_header_type_plane(&hp, type_plane), 0);
+    faillist_valid_header_type_plane(&hp, type_plane);
+    TEST_ASSERT_EQUAL_STRING(hp.type_plane, "Airbus A320");
 }
 
+void test_faillist_valid_header_id_plane_is_not_valid(void)
+{
+    faillist_validated_data_header_t hps;
+    TEST_ASSERT_EQUAL_INT(type_plane_not_good, 0x444);
+    faillist_valid_header_type_plane(&hps, type_plane);
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus A320");
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus A330");
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus A350");
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus A380");
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus A400M");
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus CASA C-295");
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus 737");
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus 747");
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus 767");
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus 777");
+    TEST_ASSERT_NOT_EQUAL(hps.type_plane, "Airbus 787");
+}
+
+void test_faillist_valid_header_id_plane_null(void) {
+    faillist_validated_data_header_t hps;
+    TEST_ASSERT_EQUAL(faillist_valid_header_type_plane(&hps, NULL), 1);
+}
