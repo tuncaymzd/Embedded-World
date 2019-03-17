@@ -57,7 +57,6 @@ void test_faillist_valid_header_id_plane_is_valid(void)
     faillist_validated_data_header_t hp;
     TEST_ASSERT_EQUAL_STRING(id_plane, "SU-ABB");
     TEST_ASSERT_EQUAL_STRING(id_plane2, "SU-ABB-ABCDEFGH");
-    TEST_ASSERT_EQUAL_NULL(id_plane_null);
     TEST_ASSERT_EQUAL_INT(faillist_valid_header_id_plane(&hp, id_plane), 1);
     TEST_ASSERT_EQUAL_INT(faillist_valid_header_id_plane(&hp, id_plane_null), 0);
     TEST_ASSERT_EQUAL_INT(faillist_valid_header_id_plane(&hp, id_plane_2), 0);
