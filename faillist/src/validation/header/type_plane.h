@@ -1,7 +1,7 @@
 #ifndef FAILLIST_VALIDATION_HEADER_TYPE_PLANE_H
 #define FAILLIST_VALIDATION_HEADER_TYPE_PLANE_H
 
-#include "data/validated_data_header.h"
+#include "../../data/validated_data_header.h"
 
 /**
  * Validate the `type_plane` of the `faillist_parsed_data_header` structure.

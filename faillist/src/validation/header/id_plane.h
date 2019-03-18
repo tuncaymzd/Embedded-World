@@ -1,7 +1,8 @@
 #ifndef FAILLIST_VALIDATION_HEADER_ID_PLANE_H
 #define FAILLIST_VALIDATION_HEADER_ID_PLANE_H
 
-#include "data/validated_data_header.h"
+#include "../../data/validated_data_header.h"
+#include "../../external/slre.h"
 
 /**
  * Validate the `id_plane` of of the `faillist_parsed_data_header` structure.

@@ -30,7 +30,8 @@
     - ../src/data
     - ../src/external
     - ../src/parsing
-    - ../src/validation
+    - ../src/validation/
+    - ../src/validation/header/
     - ../src/writing
   :support:
     - test/support

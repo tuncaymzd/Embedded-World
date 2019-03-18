@@ -1,7 +1,6 @@
 #include <stddef.h>
 #include <memory.h>
 #include <stdlib.h>
-#include "external/slre.h"
 #include "id_plane.h"
 
 #ifdef VALID_ID_PLANE_DEBUG

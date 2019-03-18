@@ -55,7 +55,7 @@ void tearDown(void)
 void test_faillist_valid_header_nb_failures_is_valid(void)
 {
     int i = 1;
-    while (i < 1000){
+    while (i < 1000) {
         TEST_ASSERT_EQUAL_INT(faillist_valid_header_nb_failures(i), 0);
         i++;
     }
@@ -69,5 +69,3 @@ void test_faillist_valid_header_nb_failures_is_not_valid(void)
 void test_faillist_valid_header_nb_failures_null(void) {
     TEST_ASSERT_EQUAL_INT(faillist_valid_header_nb_failures(nb_null), 1);
 }
-
-
