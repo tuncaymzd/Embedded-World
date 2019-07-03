@@ -5,12 +5,12 @@ set(CMAKE_C_STANDARD 11)
 
 include_directories(src)
 
-add_executable(faillist
-        src/main.c
+add_library(faillist SHARED
+        # src/main.c
         src/error_report.c
+        src/external/slre.c
         src/helper/hexa_parser.c
         src/helper/string_parser.c
-        src/external/slre.c
         src/parser/failure/comment_failure.c
         src/parser/failure/comment_failure_size.c
         src/parser/failure/date.c
