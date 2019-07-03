@@ -21,10 +21,10 @@ int faillist_helper_hexa_parser(
         return EXIT_FAILURE;
     }
     (*error)++;
-    uint32_t val = 0;
+    int val = 0;
     int i = 0;
     while (i < 9 && **error != ']' && **error != '\0') {
-        uint8_t byte = (**error)++;
+        char byte = (**error)++;
 
         if (byte >= '0' && byte <= '9') byte = byte - '0';
         else if (byte >= 'a' && byte <= 'f') byte = byte - 'a' + 10;
