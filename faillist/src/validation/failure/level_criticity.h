@@ -1,8 +1,0 @@
-#ifndef FAILLIST_VALIDATION_FAILURE_LEVEL_CRITICITY_H
-#define FAILLIST_VALIDATION_FAILURE_LEVEL_CRITICITY_H
-
-#include "data/validated_data_failure.h"
-
-int faillist_valid_failure_level_criticity(faillist_validated_data_failure_t *failure, unsigned int level_criticity);
-
-#endif //FAILLIST_VALIDATION_FAILURE_LEVEL_CRITICITY_H
